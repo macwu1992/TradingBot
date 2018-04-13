@@ -15,12 +15,9 @@ import urllib.parse
 import urllib.request
 import requests
 
-# 此处填写APIKEY
-
-ACCESS_KEY = " "
-SECRET_KEY = " "
-
-
+class key:
+    ACCESS_KEY = " "
+    SECRET_KEY = " "
 
 # API 请求地址
 MARKET_URL = "https://api.huobi.pro"
@@ -29,7 +26,8 @@ TRADE_URL = "https://api.huobi.pro"
 # 首次运行可通过get_accounts()获取acct_id,然后直接赋值,减少重复获取。
 ACCOUNT_ID = None
 
-#'Timestamp': '2017-06-02T06:13:49'
+def set_ACCESS_KEY(ACCESS_KEY):
+    ACCESS_KEY = ACCESS_KEY
 
 def http_get_request(url, params, add_to_headers=None):
     headers = {
@@ -39,9 +37,9 @@ def http_get_request(url, params, add_to_headers=None):
     if add_to_headers:
         headers.update(add_to_headers)
     postdata = urllib.parse.urlencode(params)
-    response = requests.get(url, postdata, headers=headers, timeout=5) 
+    response = requests.get(url, postdata, headers=headers, timeout=5)
     try:
-        
+
         if response.status_code == 200:
             return response.json()
         else:
@@ -61,7 +59,7 @@ def http_post_request(url, params, add_to_headers=None):
     postdata = json.dumps(params)
     response = requests.post(url, postdata, headers=headers, timeout=10)
     try:
-        
+
         if response.status_code == 200:
             return response.json()
         else:
@@ -74,7 +72,7 @@ def http_post_request(url, params, add_to_headers=None):
 def api_key_get(params, request_path):
     method = 'GET'
     timestamp = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
-    params.update({'AccessKeyId': ACCESS_KEY,
+    params.update({'AccessKeyId': key.ACCESS_KEY,
                    'SignatureMethod': 'HmacSHA256',
                    'SignatureVersion': '2',
                    'Timestamp': timestamp})
@@ -82,7 +80,7 @@ def api_key_get(params, request_path):
     host_url = TRADE_URL
     host_name = urllib.parse.urlparse(host_url).hostname
     host_name = host_name.lower()
-    params['Signature'] = createSign(params, method, host_name, request_path, SECRET_KEY)
+    params['Signature'] = createSign(params, method, host_name, request_path, key.SECRET_KEY)
 
     url = host_url + request_path
     return http_get_request(url, params)
@@ -91,7 +89,7 @@ def api_key_get(params, request_path):
 def api_key_post(params, request_path):
     method = 'POST'
     timestamp = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
-    params_to_sign = {'AccessKeyId': ACCESS_KEY,
+    params_to_sign = {'AccessKeyId': key.ACCESS_KEY,
                       'SignatureMethod': 'HmacSHA256',
                       'SignatureVersion': '2',
                       'Timestamp': timestamp}
@@ -99,7 +97,7 @@ def api_key_post(params, request_path):
     host_url = TRADE_URL
     host_name = urllib.parse.urlparse(host_url).hostname
     host_name = host_name.lower()
-    params_to_sign['Signature'] = createSign(params_to_sign, method, host_name, request_path, SECRET_KEY)
+    params_to_sign['Signature'] = createSign(params_to_sign, method, host_name, request_path, key.SECRET_KEY)
     url = host_url + request_path + '?' + urllib.parse.urlencode(params_to_sign)
     return http_post_request(url, params)
 
