@@ -16,10 +16,10 @@ class PortersBot:
     def __init__(self, **kwargs):
         self.dao = diff_dao()
         self.binance_keys = kwargs['binance_keys']
-        # json.loads(open('../keys/binance.key','r').read())
+
         self.binanceBot = BinanceBot(self.binance_keys["ACCESS_KEY"], self.binance_keys["SECRET_KEY"])
         self.huobi_keys = kwargs['huobi_keys']
-        # json.loads(open('../keys/huobi.key','r').read())
+
         self.huobiBot = HuobiBot(self.huobi_keys["ACCESS_KEY"], self.huobi_keys["SECRET_KEY"])
 
     def diff_by_symbol(self, symbol, market1=None, market2=None):

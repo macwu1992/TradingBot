@@ -9,11 +9,13 @@ Create Date:2018/4/14
 from Dao import *
 from Dao.MysqlUtil import Mysql
 import time
+import json
 
 class diff_btcusdt_binance_huobi_dao():
     def __init__(self):
+        database = json.loads(open("../database.json", "r").read())
         self.table_name = 'diff_btcusdt_binance_huobi'
-        self.mysql = Mysql(host='192.168.1.101', user='root', password='123456', database='TradingBot', port='3307')
+        self.mysql = Mysql(host=database['host'], user=database['user'], password=database['password'], database=database['database'], port=database['port'])
 
     def insert(self, po):
         #INSERT INTO `STU_MSG` (`ID`, `NAME`, `AGE`) VALUES (NULL, '', NULL),
