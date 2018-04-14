@@ -16,4 +16,4 @@ portersBot = PortersBot(
 
 while 1:
     portersBot.perform()
-    time.sleep(1)
+    time.sleep(10)

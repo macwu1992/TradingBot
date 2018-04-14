@@ -8,6 +8,7 @@ Create Date:2018/4/14
 '''
 from Dao import *
 from Dao.MysqlUtil import Mysql
+import time
 
 class diff_btcusdt_binance_huobi_dao():
     def __init__(self):
@@ -16,8 +17,8 @@ class diff_btcusdt_binance_huobi_dao():
 
     def insert(self, po):
         #INSERT INTO `STU_MSG` (`ID`, `NAME`, `AGE`) VALUES (NULL, '', NULL),
-        insert_sql = '''INSERT INTO diff_btcusdt_binance_huobi VALUES (null, %s,%s,%s,%s,%s)'''
-        value = (getattr(po, 'symbol'), getattr(po, 'ask_price1'), getattr(po, 'bid_price1'), getattr(po, 'ask_price1'), getattr(po, 'bid_price2'))
+        insert_sql = '''INSERT INTO diff_btcusdt_binance_huobi VALUES (null, %s,%s,%s,%s,%s,%s)'''
+        value = (getattr(po, 'symbol'), getattr(po, 'ask_price1'), getattr(po, 'bid_price1'), getattr(po, 'ask_price1'), getattr(po, 'bid_price2'), time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
         self.mysql.insert(insert_sql, value)
 

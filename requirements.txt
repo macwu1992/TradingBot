@@ -1,2 +1,13 @@
 requests=2.18.4
 pymysql=0.8.0
+
+server:
+import sys
+sys.path.append('/root/workspace/TradingBot')
+sys.path.append('/root/workspace/TradingBot/Dao')
+sys.path.append('/root/workspace/TradingBot/Service')
+sys.path.append('/root/workspace/TradingBot/Service/keys')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Huobi')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Binance')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Binance/binance')

@@ -20,12 +20,13 @@ class Mysql:
 
         try:
             # 执行sql语句
-            self.cursor.execute(insert_sql, value)
+            pk = self.cursor.execute(insert_sql, value)
             # 提交到数据库执行
             self.db.commit()
+            print("成功插入一条数据 pk：%s", pk)
         except:
             # 如果发生错误则回滚
             print("插入未成功：")
             self.db.rollback()
-        finally:
-            self.db.close()
+        # finally:
+        #     self.db.close()
