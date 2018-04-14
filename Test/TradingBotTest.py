@@ -6,6 +6,16 @@ NAME:TradingBotTest
 AUTHOR:Tong
 Create Date:2018/4/14
 '''
+import sys
+sys.path.append('/root/workspace/TradingBot')
+sys.path.append('/root/workspace/TradingBot/Dao')
+sys.path.append('/root/workspace/TradingBot/Service')
+sys.path.append('/root/workspace/TradingBot/Service/keys')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Huobi')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Binance')
+sys.path.append('/root/workspace/TradingBot/Service/MarketAPIs/Binance/binance')
+
 from Service.TradingBot.PortersBot import *
 import time
 

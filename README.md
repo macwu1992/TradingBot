@@ -14,5 +14,5 @@ Cryptocurrency Trading Bot
 上述两个文件自行配置
 ## Market APIs
 
-1.[huobi api](https://github.com/huobiapi/REST-API-demos)  
-2.[binance api](https://github.com/binance-exchange/binance-official-api-docs)
+1.[binance api](https://github.com/binance-exchange/binance-official-api-docs)
+2.[huobi api](https://github.com/huobiapi/REST-API-demos)  
