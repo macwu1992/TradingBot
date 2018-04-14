@@ -9,7 +9,6 @@ Create Date:2018/4/13
 from Service.MarketBot.MarketBot import *
 from Dao.DaoClass import diff_btcusdt_binance_huobi_dao as diff_dao
 from Dao.Po import diff_btcusdt_binance_huobi_po as diff_po
-import json
 
 class PortersBot:
 
