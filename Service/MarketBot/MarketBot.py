@@ -51,8 +51,14 @@ class BinanceBot(IMarketBot):
     def get_all_tickers(self):
         return self.client.get_all_tickers()
 
-    def send_order(self, symbol, side, type, quantity, timestamp):
-        self.client.create_order(symbol=symbol, side=side, type=type, quantity=quantity, timestamp=timestamp)
+    def send_order(self, symbol, side, type, quantity, price, timeInForce='GTC'):
+        self.client.create_order(symbol=symbol.upper(), side=side, type=type, quantity=quantity, price=price, timeInForce=timeInForce)
+
+    def order_info(self, symbol, order_id):
+        self.client.get_order(symbol=symbol, order_id=order_id)
+
+    def order_list(self, symbol, order_id, timestamp):
+        self.client.get_all_orders(symbol=symbol, timestamp=timestamp)
 
 class HuobiBot(IMarketBot):
 
@@ -102,5 +108,14 @@ class HuobiBot(IMarketBot):
             :param price: 
             :return: 
         """
-    def send_order(self, symbol, amount, _type):
-        return service.send_order(amount=amount, symbol=symbol, _type=_type)
+    def send_order(self, symbol, amount, _type, price=0):
+        return service.send_order(amount=amount, symbol=symbol.lower(), _type=_type, price=price)
+
+    def order_list(self, symbol, states=''):
+        return service.orders_list(symbol=symbol.lower(), states=states)
+
+    def order_info(self, order_id):
+        return service.order_info(order_id)
+
+    def orders_matchresults(self, symbol):
+        return service.orders_matchresults(symbol=symbol.lower())

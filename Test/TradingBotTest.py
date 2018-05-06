@@ -24,6 +24,11 @@ portersBot = PortersBot(
     huobi_keys=json.loads(open('../Service/keys/huobi.key','r').read())
 )
 
+# while 1:
+#     portersBot.perform()
+#     time.sleep(10)
+
+# 币安下单最小数目为0.001个btc
 while 1:
-    portersBot.perform()
+    portersBot.porting(diff_floor=3, amount=0.0015)
     time.sleep(10)

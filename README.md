@@ -15,4 +15,16 @@ Cryptocurrency Trading Bot
 ## Market APIs
 
 1.[binance api](https://github.com/binance-exchange/binance-official-api-docs)
-2.[huobi api](https://github.com/huobiapi/REST-API-demos)  
+
+2.[huobi api](https://github.com/huobiapi/REST-API-demos)
+
+---
+
+目前项目设计：
+
+1、将两个交易所的api封装为restful的api，并开发一个轻量级网站进行调用。
+将api作为微服务，以方便后续应用的开发。
+
+2、将爬虫模块提取出来
+
+3、简单策略的开发，均价以下5%挂单买入，均价以上5%卖出
