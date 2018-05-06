@@ -22,8 +22,7 @@ Cryptocurrency Trading Bot
 
 目前项目设计：
 
-1、将两个交易所的api封装为restful的api，并开发一个轻量级网站进行调用。
-将api作为微服务，以方便后续应用的开发。
+1、将两个交易所的api封装为restful的api，并开发一个轻量级网站进行调用。以方便后续应用的开发。
 
 2、将爬虫模块提取出来
 
