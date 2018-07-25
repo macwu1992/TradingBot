@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
-PROJECT_NAME:Rest_Service
+PROJECT_NAME:Service
 NAME:market_models
 AUTHOR:Tong
 Create Date:2018/5/6

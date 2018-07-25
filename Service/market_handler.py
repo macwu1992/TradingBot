@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
-PROJECT_NAME:Rest_Service
+PROJECT_NAME:Service
 NAME:market_handler
 AUTHOR:Tong
 Create Date:2018/5/6
 '''
 
 from abc import abstractmethod, ABCMeta
-import Rest_Service.external_API.Huobi.HuobiServices as huobi_service
-import Rest_Service.external_API.Binance.binance.client as binance_client
+import Service.Market_API.huobi.HuobiServices as huobi_service
+import Service.Market_API.Binance.binance.client as binance_client
 
 class BaseHandler(metaclass=ABCMeta):
 
@@ -64,7 +64,7 @@ class HuobiClient(BaseHandler):
         return self.client.send_order(**kwargs)
 
 # #
-# init huobi client
+# init Binance client
 # #
 
 class BinanceClient(BaseHandler):

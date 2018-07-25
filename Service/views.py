@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
-PROJECT_NAME:Rest_Service
+PROJECT_NAME:Service
 NAME:views
 AUTHOR:Tong
 Create Date:2018/5/6
 '''
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from Rest_Service.utils.Serializers import UserSerializer, GroupSerializer
+from Service.utils.Serializers import UserSerializer, GroupSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
-PROJECT_NAME:Rest_Service
+PROJECT_NAME:Service
 NAME:test
 AUTHOR:Tong
 Create Date:2018/5/6
@@ -9,8 +9,8 @@ Create Date:2018/5/6
 
 import json
 
-from Rest_Service.market_handler import HuobiClient
-from Rest_Service.market_handler import BinanceClient
+from Service.market_handler import HuobiClient
+from Service.market_handler import BinanceClient
 
 huobi_keys = json.loads(open('./keys/huobi.key','r').read())
 binance_keys = json.loads(open('./keys/binance.key','r').read())
